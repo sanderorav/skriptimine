@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# See skript arvestab nädala ajakulu ainepunktide peale ja ümardab selle ülespoole täisarvuks
+echo -n "Sisesta ainepunktide arv: "
+read ainepunktid
+echo -n "Sisesta nädalate arv: "
+read nadalad
+aeg=$(( (ainepunktid * 26 + nadalad - 1) / nadalad ))
+echo "Ajakulu nädalas: $aeg tundi"
