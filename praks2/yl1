@@ -1,5 +1,9 @@
 #!/bin/bash
 # This script greets the user logged in
 user=`whoami`
-echo "Tere, $user"
+
+# Capitalise first letter
+user_capitalised="$(tr '[:lower:]' '[:upper:]' <<< ${user:0:1})${user:1}"
+
+echo "Tere, $user_capitalised"
 echo "!"
