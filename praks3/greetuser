@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This script asks the user their first and last name and greets them
+
+echo -n "Sisesta oma ees- ja perenimi: "
+read eesnimi perenimi
+echo "Tere tulemast, $eesnimi $perenimi !"
