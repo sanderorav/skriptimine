@@ -1,0 +1,90 @@
+#!/bin/bash
+
+# Display active directory and user
+echo "The current directory is:"
+pwd
+echo "The user logged in is:"
+whoami
+
+# Display user home
+echo "Home for the current user is: $HOME"
+
+# Print dollar sign
+echo "I have \$1 in my pocket"
+
+# User variables
+grade=5
+person="Adam"
+echo "$person is a good boy, he is in grade $grade"
+
+# Extract information
+mydir=`pwd`
+echo $mydir
+
+# Math
+var1=$(( 5 + 5 ))
+echo $var1
+var2=$(( $var1 * 2 ))
+echo $var2
+
+# if-then statement
+if whoami; then
+	echo "It works"
+fi
+
+# Check if a user exists
+user=sander
+if grep $user /etc/passwd; then
+	echo "The user $user Exists"
+elif ls /home; then
+	echo "The user doesn’t exist"
+fi
+
+# Combine tests
+dir=/home/sander
+name="sander"
+if [ -d $dir ] || [ -n $name ]; then
+	echo "The name exists and the folder $dir exists."
+else
+	echo "Both tests failed"
+fi
+
+# Numeric comparisons
+num=11
+if [ $num -gt 10 ]; then
+	echo "$num is bigger than 10"
+else
+	echo "$num is less than 10"
+fi
+
+# String comparisons
+user="sander"
+if [ $user = $USER ]; then
+	echo "The user $user&nbsp; is the current logged in user"
+fi
+
+v1=text
+v2="another text"
+if [ $v1 \> "$v2" ]; then
+	echo "$v1 is greater than $v2"
+else
+	echo "$v1 is less than $v2"
+fi
+
+v1=Likegeeks
+v2=likegeeks
+if [ $v1 \> $v2 ]; then
+	echo "$v1 is greater than $v2"
+else
+	echo "$v1 is less than $v2"
+fi
+
+# File comparisons
+mydir=/home/sander
+if [ -d $mydir ]; then
+	echo "Directory $mydir exists"
+	cd $mydir
+	ls
+else
+	echo "NO such file or directory $mydir"
+fi
