@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This script prints current time and calendar
+date +"Today is %A, %B %e, %Y"
+date +"Time is %H:%M"
+date +"Calendar of %B %Y"
+cal | tail -n 7 
