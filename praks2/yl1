@@ -1,0 +1,5 @@
+#!/bin/bash
+# This script greets the user logged in
+user=`whoami`
+echo "Tere, $user"
+echo "!"
