@@ -2,7 +2,7 @@
 
 # Argumendi kontroll
 if [ -z "$1" ]; then
-	echo "Viga! Skripti kasutamiseks sisesta argument kujul ./yl1 <number>"
+	echo "Viga! Skripti kasutamiseks sisesta argument kujul ./paarsus <number>"
 	exit 1
 fi
 
