@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo -n "Sisesta kuu number: "
+read kuu
+
+# Kontrollib, kas sisestatakse täisarv
+if ! [[ "$kuu" =~ ^[0-9]+$ ]]; then
+    echo "Viga! Palun sisesta täisarvuline väärtus 1-12."
+    exit 1
+fi
+
+# Kontrollib aastaaega
+if (( kuu == 1 || kuu == 2 || kuu == 12 )); then
+	echo "Praegu on talv."
+elif (( kuu == 3 || kuu == 4 || kuu == 5 )); then
+	echo "Praegu on kevad."
+elif (( kuu == 6 || kuu == 7 || kuu == 8 )); then
+	echo "Praegu on suvi."
+elif (( kuu == 9 || kuu == 10 || kuu == 11 )); then
+	echo "Praegu on sügis."
+else
+	echo "Viga! Palun sisesta täisarv 1-12."
+fi
