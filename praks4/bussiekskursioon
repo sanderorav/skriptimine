@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# See skript arvutab, mitu on täielikult täidetud bussi ja mitu inimest jääb maha
+
+echo -n "Sisesta reisijate arv: "
+read reisijad
+echo -n "Sisesta kohtade arv ühes bussis: "
+read kohad
+
+busse=$((reisijad / kohad))
+mahajaajad=$((reisijad % kohad))
+echo "Täis busse on ${busse}. Üle jääb ${mahajaajad} inimest."
+
+if ((mahajaajad > 0)); then
+	busse=$((busse + 1))
+fi
+
+echo "Kokku on vaja $busse bussi."
