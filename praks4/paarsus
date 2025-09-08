@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Argumendi kontroll
+if [ -z "$1" ]; then
+	echo "Viga! Skripti kasutamiseks sisesta argument kujul ./yl1 <number>"
+	exit 1
+fi
+
+# Paarsuse kontroll
+arv=$1
+if (($arv % 2 == 0)); then
+	echo "Antud arv on paaris."
+else
+	echo "Antud arv on paaritu."
+fi
