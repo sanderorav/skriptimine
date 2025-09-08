@@ -3,7 +3,17 @@
 # See skript arvestab nädala ajakulu ainepunktide peale ja ümardab selle ülespoole täisarvuks
 echo -n "Sisesta ainepunktide arv: "
 read ainepunktid
+if ! [[ "$ainepunktid" =~ ^[0-9]+$ ]]; then
+    echo "Viga: palun sisesta täisarv ainepunktide arvuks."
+    exit 1
+fi
 echo -n "Sisesta nädalate arv: "
 read nadalad
+if ! [[ "$nadalad" =~ ^[0-9]+$ ]]; then
+    echo "Viga: palun sisesta täisarv nädalate arvuks."
+    exit 1
+fi
+
 aeg=$(( (ainepunktid * 26 + nadalad - 1) / nadalad ))
+
 echo "Ajakulu nädalas: $aeg tundi"
