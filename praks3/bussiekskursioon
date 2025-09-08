@@ -4,8 +4,17 @@
 
 echo -n "Sisesta reisijate arv: "
 read reisijad
+if ! [[ "$reisijad" =~ ^[0-9]+$ ]]; then
+    echo "Viga: palun sisesta täisarv."
+    exit 1
+fi
+
 echo -n "Sisesta kohtade arv ühes bussis: "
 read kohad
+if ! [[ "$kohad" =~ ^[0-9]+$ ]]; then
+    echo "Viga: palun sisesta täisarv."
+    exit 1
+fi
 
 busse=$((reisijad / kohad))
 mahajaajad=$((reisijad % kohad))
