@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo -n "Sisesta kellaaeg (0-23): "
+read aeg
+
+if ! [[ "$aeg" =~ ^[0-9]+$ ]]; then
+    echo "Viga! Palun sisesta täisarvuline väärtus 0-23."
+    exit 1
+fi
+
+if  (( aeg >= 6 && aeg < 12 )); then
+	echo "Tere hommikust!"
+elif (( aeg >= 12 && aeg < 18 )); then
+	echo "Tere päevast!"
+elif (( aeg >= 18 && aeg < 22 )); then
+        echo "Tere õhtust!"
+elif (( aeg >= 22 && aeg <= 23 || aeg >= 0 && aeg < 6 )); then
+        echo "Head ööd!"
+else
+	echo "Viga! Palun sisesta täisarvuline väärtus 0-23."
+fi
