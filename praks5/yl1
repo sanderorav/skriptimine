@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo -n "Sisesta vanus: "
+read vanus
+
+# Kontrollib, kas sisestatakse täisarv
+if ! [[ "$vanus" =~ ^[0-9]+$ ]]; then
+    echo "Viga! Palun sisesta arvuline väärtus."
+    exit 1
+fi
+
+# Vanuse järgi liigitamine
+if (( vanus >= 0 && vanus < 11 )); then
+	echo "Oled laps."
+elif (( vanus >= 11 && vanus < 18 )); then
+	echo "Oled nooruk."
+elif (( vanus >= 18 && vanus < 63 )); then
+	echo "Oled täiskasvanu."
+else
+	echo "Oled senjoor."
+fi
