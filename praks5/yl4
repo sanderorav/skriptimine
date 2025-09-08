@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Süsteemi aeg
+aeg=$(date +%H)
+aeg=$((10#$aeg))
+
+# Kasutaja
+kasutaja="${USER: -$(whoami)}"
+kasutaja_cap="${kasutaja^}"
+
+if  (( aeg >= 6 && aeg < 12 )); then
+	echo "Tere hommikust, $kasutaja_cap! Kell on ${aeg}."
+elif (( aeg >= 12 && aeg < 18 )); then
+	echo "Tere päevast, $kasutaja_cap! Kell on ${aeg}."
+elif (( aeg >= 18 && aeg < 22 )); then
+        echo "Tere õhtust, $kasutaja_cap! Kell on ${aeg}."
+elif (( aeg >= 22 && aeg <= 23 || aeg >= 0 && aeg < 6 )); then
+        echo "Head ööd, $kasutaja_cap! Kell on ${aeg}."
+else
+	echo "Viga! Süsteemi kellaaeg on tundmatu."
+fi
