@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# See skript arvutab numbrite summa täisarvus
+
+echo -n "Sisesta täisarv: "
+read taisarv
+
+# Kontroll, kas kasutaja sisestas täisarvu
+if [[ ! "$taisarv" =~ ^-?[0-9]+$ ]]; then
+    echo "Viga: Sisestatud väärtus pole täisarv."
+    exit 1
+fi
+
+original=$taisarv
+sum=0
+sign=1
+
+# Kui arv on negatiivne, siis jätame miinusmärgi alles
+if [[ "$taisarv" == -* ]]; then
+    sign=-1
+    taisarv=${taisarv#-}
+fi
+
+# Käime läbi iga numbri ja liidame
+for (( i=0; i<${#taisarv}; i++ )); do
+	digit=${taisarv:$i:1}
+	sum=$((sum + digit))
+done
+
+sum=$((sum*sign))
+
+echo "Arvu $original summa on $sum."
