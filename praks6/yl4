@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# See skript määrab, kas sisestatud arv on algarv või mitte.
+
+while true; do
+	echo -n "Sisesta täisarv: "
+	read taisarv
+
+	if [[ "$taisarv" =~ ^[0-9]+$ ]]; then
+		break
+	else
+		echo "Viga: Sisestatud väärtus pole täisarv."
+	fi
+done
+
+if ((taisarv == 0 || taisarv == 1)); then
+	echo "$taisarv pole algarv."
+else
+	jagaja=2
+	modulo=$(($taisarv % $jagaja))
+	while ((modulo != 0)); do
+		jagaja=$(($jagaja +1))
+		modulo=$(($taisarv % $jagaja))
+	done
+	if ((taisarv == jagaja)); then
+		echo "$taisarv on algarv."
+	else
+		echo "$taisarv pole algarv."
+	fi
+fi
