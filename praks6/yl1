@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# See skript arvutab 10 esimese paarisarvu summa
+
+summa=0
+
+for (( arv=1; arv<11; arv++ ))
+do
+	modulo=$(($arv%2))
+	if ((modulo==0)); then
+		summa=$(($summa + $arv))
+		echo $summa
+	fi
+done
+echo "Paarisarvude summa vahemikus 1-10 (kaasa arvatud) on $summa."
