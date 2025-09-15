@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# See skript kasutab üksteise sisse ehitatud loope, et kuvada ekraanil kasutaja poolt sisestatud arv ridu
+# kasutaja poolt sisestatud arv tärne.
+
+# Kontrollime, et kasutaja sisestaks täisarvu
+while true; do
+	echo -n "Sisesta ridade arv (täisarv): "
+	read ridu
+
+	if [[ "$ridu" =~ ^[0-9]+$ ]]; then
+		break
+	else
+		echo "Viga: Sisestatud väärtus pole täisarv."
+	fi
+done
+
+# Kontrollime, et kasutaja sisestaks täisarvu
+while true; do
+	echo -n "Sisesta tärnide arv (täisarv): "
+	read tarne
+
+        if [[ "$tarne" =~ ^[0-9]+$ ]]; then
+                break
+        else
+                echo "Viga: Sisestatud väärtus pole täisarv."
+        fi
+done
+
+for (( i = 1; i <= $ridu; i++ )); do
+	echo -n "$i. "
+	for (( j = 1; j <= $tarne; j++ )); do
+		echo -n "*"
+	done
+	echo ""
+done
