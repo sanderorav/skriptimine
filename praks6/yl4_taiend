@@ -3,8 +3,10 @@
 # Kontrollib iga arvu 0 kuni 20, kas see on algarv või mitte.
 
 for taisarv in {0..20}; do
-    if (( taisarv < 2 )); then
+    if (( taisarv == 0 )); then
         echo "$taisarv pole algarv."
+    elif (( taisarv == 1 )); then
+	echo "$taisarv on algarv."
     else
         algarv=true
         for ((jagaja=2; jagaja<=taisarv/2; jagaja++)); do
