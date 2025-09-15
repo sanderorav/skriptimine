@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# See skript kasutab üksteise sisse ehitatud loope, et kuvada ekraanil tärnidest kolmnurk.
+
+# Kontrollime, et kasutaja sisestaks täisarvu
+while true; do
+	echo -n "Sisesta ridade arv (täisarv): "
+	read ridu
+
+	if [[ "$ridu" =~ ^[0-9]+$ ]]; then
+		break
+	else
+		echo "Viga: Sisestatud väärtus pole täisarv."
+	fi
+done
+
+for (( i = 1; i <= $ridu; i++ )); do
+	echo -n "$i. "
+	for (( j = 1; j <= $ridu - i; j++ )); do
+		echo -n "o"
+	done
+	for (( k = 1; k <= $i; k++ )); do
+		echo -n "*"
+	done
+	echo ""
+done
