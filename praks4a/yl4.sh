@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# See skript teeb backup kaustast test
+# See skript küsib kasutajalt kausta, mida varundada, ja varundab selle kasutaja poolt sisestaud kausta
 
 echo -n "Sisesta varundatava kataloogi nimi: "
 read SRC
