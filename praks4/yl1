@@ -1,7 +1,17 @@
 #!/bin/bash
 
-echo -n "Sisesta suvaline täisarv: "
-read arv
+while true; do
+	echo -n "Sisesta suvaline täisarv: "
+	read arv
+        if [[ "$arv" =~ ^[0-9]+$ ]]; then
+                echo "$arv"
+                break
+        else
+                echo "Viga: Sisestatud väärtus pole täisarv."
+        fi
+done
+
+
 if (($arv % 2 == 0)); then
 	echo "Antud arv on paaris."
 else
