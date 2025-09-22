@@ -2,10 +2,27 @@
 
 # See skript arvutab, mitu on täielikult täidetud bussi ja mitu inimest jääb maha
 
-echo -n "Sisesta reisijate arv: "
-read reisijad
-echo -n "Sisesta kohtade arv ühes bussis: "
-read kohad
+while true; do
+	echo -n "Sisesta reisijate arv: "
+	read reisijad
+	if [[ "$reisijad" =~ ^[0-9]+$ ]]; then
+		echo "Reisijaid on $reisijad."
+		break
+	else
+		echo "Viga: Sisestatud väärtus pole täisarv."
+	fi
+done
+
+while true; do
+	echo -n "Sisesta kohtade arv ühes bussis: "
+	read kohad
+        if [[ "$kohad" =~ ^[0-9]+$ ]]; then
+                echo "Kohti on $kohad."
+                break
+        else
+                echo "Viga: Sisestatud väärtus pole täisarv."
+        fi
+done
 
 busse=$((reisijad / kohad))
 mahajaajad=$((reisijad % kohad))
