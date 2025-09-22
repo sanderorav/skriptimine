@@ -36,18 +36,14 @@ echo "Teen varukoopia kataloogist: $SRC"
 echo "Varukoopia fail: $BACKUP_NAME"
 echo "Sihtkataloog: $DEST"
 
-# Loo arhiiv
-tar --ignore-failed-read -czf "$DEST/$BACKUP_NAME" -C "$src_dirname" "$src_basename" 2>/dev/null
+# Loo arhiiv (ära ignoreeri vigu!)
+tar -czf "$DEST/$BACKUP_NAME" -C "$src_dirname" "$src_basename"
 status=$?
 
-if [ -s "$DEST/$BACKUP_NAME" ]; then
+if [ $status -eq 0 ]; then
     echo "Varukoopia loodud: $DEST/$BACKUP_NAME"
-    if [ "$status" -eq 1 ]; then
-        echo "Märkus: mõnda faili ei saanud lugeda või need muutusid lugemise ajal."
-    fi
     exit 0
 else
-    echo "Varundamine ebaõnnestus!"
-    exit 1
+    echo "Varundamine ebaõnnestus! (tar väljus koodiga $status)"
+    exit $status
 fi
-
