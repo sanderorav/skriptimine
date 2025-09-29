@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Sander Orav - menu - see skript kuvab kasutajale kolme valikuga menüü ja küsib temalt valikut.
+
+echo "1) liha ja kartulid"
+echo "2) kala ja krõpsud"
+echo "3) supp ja salat"
+
+while true; do
+	echo -n "Tee oma valik (1 või 2 või 3): "
+	read valik
+	if [ $valik -eq 1 ] 2>/dev/null; then
+		echo "Väga maitsev, aga jälgi oma tervist!"
+		echo "Head isu!"
+		break
+	elif [ $valik -eq 2 ] 2>/dev/null; then
+		echo "Briti toit on maitsev!"
+		echo "Head isu!"
+		break
+	elif [ $valik -eq 3 ] 2>/dev/null; then
+		echo "Nii tervislik ja igav..."
+		echo "Head isu!"
+		break
+	else
+		echo "Sa ei valinud ei 1, 2 ega kolm. Vali uuesti."
+	fi
+done
