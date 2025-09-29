@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# info - see skript tervitab sisselogitud kasutajat ning väljastab kuupäeva 
+# Sander Orav - info - see skript tervitab sisselogitud kasutajat ning väljastab kuupäeva 
 # ja aja
 
 user=`whoami`
