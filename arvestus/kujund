@@ -15,7 +15,6 @@ while true; do
 done
 
 for (( i = ridu; i >= 1; i-- )); do
-    echo -n "$i. "
     for (( j = 1; j <= i; j++ )); do
         echo -n "*"
     done
