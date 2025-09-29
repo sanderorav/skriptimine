@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# info - see skript tervitab sisselogitud kasutajat ning väljastab kuupäeva 
+# ja aja
+
+user=`whoami`
+
+# Capitalise first letter
+user_capitalised="$(tr '[:lower:]' '[:upper:]' <<< ${user:0:1})${user:1}"
+
+echo "Tere, $user_capitalised!"
+
+# Echo time and date
+date +"Täna on %d.%m.%Y kell %H:%M" 
