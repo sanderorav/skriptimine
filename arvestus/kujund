@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Sander Orav - kujund - see skript küsib kasutajalt täisarvu ja kuvab tagurpidi kolmnurga vastava arvu ridadega
+
+# Kontrollime, et kasutaja sisestaks täisarvu
+while true; do
+	echo -n "Sisesta ridade arv (täisarv): "
+	read ridu
+
+	if [[ "$ridu" =~ ^[0-9]+$ ]]; then
+		break
+	else
+		echo "Viga: Sisestatud väärtus pole täisarv."
+	fi
+done
+
+for (( i = ridu; i >= 1; i-- )); do
+    echo -n "$i. "
+    for (( j = 1; j <= i; j++ )); do
+        echo -n "*"
+    done
+    echo ""
+done
